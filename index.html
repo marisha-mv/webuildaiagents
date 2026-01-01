@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Build AI Agents - Brand System (Purple/Pink)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Backgrounds */
+            --bg-white: #ffffff;
+            --bg-light: #fafafa;
+            --bg-gray: #f5f5f5;
+            --bg-dark: #0f0f0f;
+            
+            /* Brand Gradient Colors */
+            --purple: #8b5cf6;
+            --pink: #ec4899;
+            --coral: #fb7185;
+            
+            /* Extended Colors */
+            --purple-dark: #7c3aed;
+            --purple-light: #a78bfa;
+            --pink-light: #f9a8d4;
+            --blue: #3b82f6;
+            --cyan: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            
+            /* Text */
+            --text-primary: #0f0f0f;
+            --text-secondary: rgba(15, 15, 15, 0.7);
+            --text-dim: rgba(15, 15, 15, 0.5);
+            --text-inverse: #ffffff;
+            
+            /* UI */
+            --border: rgba(15, 15, 15, 0.1);
+            --border-medium: rgba(15, 15, 15, 0.2);
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-white);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        /* Navigation */
+        nav {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--purple), var(--pink), var(--coral));
+            border-radius: 8px;
+            transform: rotate(45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-icon::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 2px;
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        section:nth-child(even) {
+            background: linear-gradient(180deg, rgba(139, 92, 246, 0.02) 0%, transparent 100%);
+        }
+        
+        h1 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--purple), var(--pink), var(--coral));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+        
+        p {
+            color: var(--text-secondary);
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        
+        /* Color Grid */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .color-swatch {
+            aspect-ratio: 1;
+            border-radius: 20px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        
+        .color-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .color-hex {
+            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            opacity: 0.7;
+        }
+        
+        /* Gradient Swatches */
+        .gradient-showcase {
+            display: grid;
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .gradient-swatch {
+            height: 200px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Typography Samples */
+        .type-sample {
+            margin-bottom: 48px;
+            padding: 40px;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        
+        .type-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .type-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-dim);
+            font-weight: 600;
+        }
+        
+        .type-specs {
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-dim);
+        }
+        
+        /* Buttons */
+        .button-showcase {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+        
+        .btn-primary {
+            padding: 18px 40px;
+            background: linear-gradient(135deg, var(--purple), var(--pink), var(--coral));
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(139, 92, 246, 0.4);
+        }
+        
+        .btn-secondary {
+            padding: 18px 40px;
+            background: transparent;
+            border: 2px solid var(--border-medium);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: button;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--purple);
+            color: var(--purple);
+            background: rgba(139, 92, 246, 0.05);
+        }
+        
+        .btn-ghost {
+            padding: 18px 40px;
+            background: transparent;
+            border: none;
+            color: var(--purple);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-ghost:hover {
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 12px;
+        }
+        
+        /* Cards */
+        .card-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 1px 3px var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.15);
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+        
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+        }
+        
+        .card h4 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Badges */
+        .badge-showcase {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+        
+        .badge-gradient {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            border-radius: 100px;
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+        
+        .badge-outline {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 100px;
+            color: var(--purple);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Stats */
+        .stats-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px 32px;
+            text-align: center;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 12px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Pricing Card */
+        .pricing-featured {
+            background: var(--bg-white);
+            border: 2px solid transparent;
+            background-image: 
+                linear-gradient(white, white),
+                linear-gradient(135deg, var(--purple), var(--pink), var(--coral));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border-radius: 24px;
+            padding: 48px 40px;
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
+            position: relative;
+            margin: 40px 0;
+            max-width: 400px;
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px 24px;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            color: white;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+        
+        .pricing-amount {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 64px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin: 24px 0 16px;
+        }
+        
+        /* Code Block */
+        .code-block {
+            background: var(--bg-dark);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 32px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: #a0a0a0;
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .code-property {
+            color: var(--purple-light);
+        }
+        
+        .code-value {
+            color: var(--pink-light);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            h1 {
+                font-size: 40px;
+            }
+            
+            h2 {
+                font-size: 32px;
+            }
+            
+            .button-showcase,
+            .badge-showcase {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span>webuildaiagents</span>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero -->
+    <section>
+        <div class="container">
+            <h1>
+                Brand System <span class="gradient-text">Showcase</span>
+            </h1>
+            <p style="font-size: 24px; max-width: 800px;">
+                Modern SaaS aesthetic with purple/pink gradient. White backgrounds, clean typography, soft shadows, and vibrant accents.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Logo -->
+    <section>
+        <div class="container">
+            <h2>Logo System</h2>
+            <p>Diamond icon with gradient + lowercase wordmark</p>
+            
+            <div style="display: flex; gap: 60px; margin-top: 60px; flex-wrap: wrap;">
+                <!-- Full Logo -->
+                <div style="text-align: center;">
+                    <div style="display: flex; align-items: center; gap: 16px; font-size: 32px; font-weight: 700;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #8b5cf6, #ec4899, #fb7185); border-radius: 12px; transform: rotate(45deg); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);">
+                            <div style="width: 18px; height: 18px; background: white; border-radius: 3px;"></div>
+                        </div>
+                        <span>webuildaiagents</span>
+                    </div>
+                    <p style="margin-top: 16px; font-size: 13px; color: var(--text-dim);">Full logo</p>
+                </div>
+                
+                <!-- Icon Only -->
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #8b5cf6, #ec4899, #fb7185); border-radius: 20px; transform: rotate(45deg); display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);">
+                        <div style="width: 30px; height: 30px; background: white; border-radius: 6px;"></div>
+                    </div>
+                    <p style="margin-top: 24px; font-size: 13px; color: var(--text-dim);">Icon only</p>
+                </div>
+                
+                <!-- Short Version -->
+                <div style="text-align: center;">
+                    <div style="display: flex; align-items: center; gap: 16px; font-size: 40px; font-weight: 700;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #8b5cf6, #ec4899, #fb7185); border-radius: 12px; transform: rotate(45deg); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);">
+                            <div style="width: 18px; height: 18px; background: white; border-radius: 3px;"></div>
+                        </div>
+                        <span>wbaa</span>
+                    </div>
+                    <p style="margin-top: 16px; font-size: 13px; color: var(--text-dim);">Short version</p>
+                </div>
+            </div>
+            
+            <!-- Dark Background Version -->
+            <div style="margin-top: 60px; padding: 60px; background: #0f0f0f; border-radius: 20px;">
+                <div style="display: flex; align-items: center; gap: 16px; font-size: 32px; font-weight: 700; color: white; justify-content: center;">
+                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #8b5cf6, #ec4899, #fb7185); border-radius: 12px; transform: rotate(45deg); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(139, 92, 246, 0.6);">
+                        <div style="width: 18px; height: 18px; background: white; border-radius: 3px;"></div>
+                    </div>
+                    <span>webuildaiagents</span>
+                </div>
+                <p style="text-align: center; margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.5);">Logo on dark background</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Colors -->
+    <section>
+        <div class="container">
+            <h2>Color Palette</h2>
+            
+            <h3>Gradient System (THE CORE)</h3>
+            <div class="gradient-showcase">
+                <div class="gradient-swatch" style="background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #fb7185 100%);">
+                    Primary Brand Gradient
+                </div>
+                <div class="gradient-swatch" style="background: linear-gradient(135deg, #fb7185 0%, #ec4899 50%, #8b5cf6 100%);">
+                    Reverse Gradient
+                </div>
+                <div class="gradient-swatch" style="background: linear-gradient(135deg, #8b5cf6, #3b82f6);">
+                    Purple → Blue
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 80px;">Primary Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch" style="background: #ffffff; border: 2px solid var(--border);">
+                    <div class="color-name">White</div>
+                    <div class="color-hex">#ffffff</div>
+                </div>
+                <div class="color-swatch" style="background: #fafafa;">
+                    <div class="color-name">Light Gray</div>
+                    <div class="color-hex">#fafafa</div>
+                </div>
+                <div class="color-swatch" style="background: #f5f5f5;">
+                    <div class="color-name">Gray</div>
+                    <div class="color-hex">#f5f5f5</div>
+                </div>
+                <div class="color-swatch" style="background: #8b5cf6;">
+                    <div class="color-name" style="color: white;">Purple</div>
+                    <div class="color-hex" style="color: rgba(255,255,255,0.8);">#8b5cf6</div>
+                </div>
+                <div class="color-swatch" style="background: #ec4899;">
+                    <div class="color-name" style="color: white;">Pink</div>
+                    <div class="color-hex" style="color: rgba(255,255,255,0.8);">#ec4899</div>
+                </div>
+                <div class="color-swatch" style="background: #fb7185;">
+                    <div class="color-name" style="color: white;">Coral</div>
+                    <div class="color-hex" style="color: rgba(255,255,255,0.8);">#fb7185</div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 80px;">Semantic Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch" style="background: #10b981;">
+                    <div class="color-name" style="color: white;">Success</div>
+                    <div class="color-hex" style="color: rgba(255,255,255,0.8);">#10b981</div>
+                </div>
+                <div class="color-swatch" style="background: #f59e0b;">
+                    <div class="color-name" style="color: white;">Warning</div>
+                    <div class="color-hex" style="color: rgba(255,255,255,0.8);">#f59e0b</div>
+                </div>
+                <div class="color-swatch" style="background: #ef4444;">
+                    <div class="color-name" style="color: white;">Error</div>
+                    <div class="color-hex" style="color: rgba(255,255,255,0.8);">#ef4444</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Typography -->
+    <section>
+        <div class="container">
+            <h2>Typography</h2>
+            <p>Inter for everything • JetBrains Mono for numbers/data</p>
+            
+            <div class="type-sample">
+                <div class="type-meta">
+                    <div class="type-label">Display (Hero)</div>
+                    <div class="type-specs">Inter • 800 • 96px</div>
+                </div>
+                <div style="font-size: 96px; font-weight: 800; line-height: 1.05; letter-spacing: -0.03em;">
+                    Buy Back 10 Hours
+                </div>
+            </div>
+            
+            <div class="type-sample">
+                <div class="type-meta">
+                    <div class="type-label">Display with Gradient</div>
+                    <div class="type-specs">Inter • 800 • 72px • Gradient</div>
+                </div>
+                <div style="font-size: 72px; font-weight: 800; line-height: 1.05; background: linear-gradient(135deg, #8b5cf6, #ec4899, #fb7185); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    AI Agents That Work
+                </div>
+            </div>
+            
+            <div class="type-sample">
+                <div class="type-meta">
+                    <div class="type-label">Monospace (Pricing)</div>
+                    <div class="type-specs">JetBrains Mono • 700 • 64px</div>
+                </div>
+                <div class="stat-value" style="text-align: left;">$249/mo</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Buttons -->
+    <section>
+        <div class="container">
+            <h2>Buttons</h2>
+            
+            <h3>Primary (Gradient)</h3>
+            <div class="button-showcase">
+                <button class="btn-primary">Get Started Free</button>
+                <button class="btn-primary">Join Waitlist →</button>
+                <button class="btn-primary">Start 7-Day Trial</button>
+            </div>
+            
+            <h3 style="margin-top: 60px;">Secondary (Outline)</h3>
+            <div class="button-showcase">
+                <button class="btn-secondary">Learn More</button>
+                <button class="btn-secondary">Watch Demo →</button>
+                <button class="btn-secondary">See Pricing</button>
+            </div>
+            
+            <h3 style="margin-top: 60px;">Ghost (Minimal)</h3>
+            <div class="button-showcase">
+                <button class="btn-ghost">View Documentation →</button>
+                <button class="btn-ghost">Contact Sales</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cards -->
+    <section>
+        <div class="container">
+            <h2>Cards</h2>
+            
+            <div class="card-showcase">
+                <div class="card">
+                    <div class="card-icon">🧠</div>
+                    <h4>Learn Your Voice</h4>
+                    <p>Upload 2-3 examples of your content. The agent learns your tone, style, and brand voice automatically.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h4>Deploy in 18 Minutes</h4>
+                    <p>No coding required. Connect your tools, upload examples, and you're live. Average setup time under 20 minutes.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h4>Save 74 Hours Monthly</h4>
+                    <p>Each agent handles complete workflows. Three agents = 74 hours saved per month. That's nearly 2 FTEs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Badges -->
+    <section>
+        <div class="container">
+            <h2>Badges</h2>
+            
+            <h3>Gradient Badges</h3>
+            <div class="badge-showcase">
+                <span class="badge-gradient">NOW LIVE</span>
+                <span class="badge-gradient">🔥 MOST POPULAR</span>
+                <span class="badge-gradient">LIMITED TIME</span>
+            </div>
+            
+            <h3 style="margin-top: 60px;">Outline Badges</h3>
+            <div class="badge-showcase">
+                <span class="badge-outline">724 LEFT</span>
+                <span class="badge-outline">FOUNDING MEMBER</span>
+                <span class="badge-outline">BEST VALUE</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats -->
+    <section>
+        <div class="container">
+            <h2>Statistics Display</h2>
+            
+            <div class="stats-showcase">
+                <div class="stat-card">
+                    <span class="stat-value">74 hrs</span>
+                    <span class="stat-label">Saved Monthly</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">18 min</span>
+                    <span class="stat-label">Setup Time</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">$249</span>
+                    <span class="stat-label">Per Month</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">87%</span>
+                    <span class="stat-label">No Tech Skills</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Card -->
+    <section>
+        <div class="container">
+            <h2>Pricing Card (Featured)</h2>
+            
+            <div class="pricing-featured">
+                <div class="pricing-badge">MOST POPULAR</div>
+                <div style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); font-weight: 600;">Founding Member</div>
+                <div class="pricing-amount">$249</div>
+                <div style="color: var(--text-secondary); margin-bottom: 32px;">/month billed monthly</div>
+                <button class="btn-primary" style="width: 100%;">Get Started →</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Code Example -->
+    <section>
+        <div class="container">
+            <h2>CSS Variables</h2>
+            
+            <div class="code-block">
+:root {
+    <span style="color: #666;">/* Gradient */</span>
+    <span class="code-property">--purple</span>: <span class="code-value">#8b5cf6</span>;
+    <span class="code-property">--pink</span>: <span class="code-value">#ec4899</span>;
+    <span class="code-property">--coral</span>: <span class="code-value">#fb7185</span>;
+    
+    <span style="color: #666;">/* Backgrounds */</span>
+    <span class="code-property">--bg-white</span>: <span class="code-value">#ffffff</span>;
+    <span class="code-property">--bg-light</span>: <span class="code-value">#fafafa</span>;
+    
+    <span style="color: #666;">/* Text */</span>
+    <span class="code-property">--text-primary</span>: <span class="code-value">#0f0f0f</span>;
+}
+
+<span style="color: #666;">/* Primary Gradient */</span>
+<span class="code-property">background</span>: linear-gradient(135deg, 
+    var(--purple), 
+    var(--pink), 
+    var(--coral)
+);
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer style="padding: 80px 0; border-top: 1px solid var(--border); text-align: center;">
+        <div class="container">
+            <p style="color: var(--text-dim); font-size: 14px;">
+                © 2024 We Build AI Agents. Modern SaaS Brand System.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
+
